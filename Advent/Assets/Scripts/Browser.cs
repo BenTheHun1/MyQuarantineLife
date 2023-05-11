@@ -51,7 +51,10 @@ public class Browser : MonoBehaviour
         }
         if (!foundIt)
         {
-            curSite.SetActive(false);
+			if (curSite)
+			{
+				curSite.SetActive(false);
+			}
             curSite = allSites[4];
             curSite.SetActive(true);
             Search(URL.text);

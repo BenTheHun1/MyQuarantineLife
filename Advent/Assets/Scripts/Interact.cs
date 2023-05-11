@@ -32,6 +32,8 @@ public class Interact : MonoBehaviour
     public AudioClip pickUp;
     public AudioClip call;
 
+	public bool isGrafix;
+
     // Start is called before the first frame update
     void Start()
     {

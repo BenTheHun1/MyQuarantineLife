@@ -197,7 +197,7 @@ public class OverseerGlobalProcesses : MonoBehaviour
         miner.ActiveToggle.isOn = data.isMinerActive;
         miner.totalIn = data.totalIn;
         miner.totalTrans = data.totalTrans;
-
+		miner.secTrans = data.secTrans;
     }
 
 

@@ -44,6 +44,7 @@ public class SaveData
     public bool isMinerActive;
     public int totalTrans;
     public float totalIn;
+	public int secTrans;
 
 
     public SaveData(OverseerGlobalProcesses overseer, GameObject player, Clicker clicker, Browser browser, Miner miner)
@@ -110,5 +111,6 @@ public class SaveData
         isMinerActive = miner.isActive;
         totalIn = miner.totalIn;
         totalTrans = miner.totalTrans;
+		secTrans = miner.secTrans;
     }
 }
