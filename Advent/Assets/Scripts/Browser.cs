@@ -36,6 +36,11 @@ public class Browser : MonoBehaviour
 
     public void GoSite(string term)
     {
+		if (term == "HomePage")
+		{
+			GoHome();
+			return;
+		}
         bool foundIt = false;
         foreach (GameObject i in allSites)
         {
