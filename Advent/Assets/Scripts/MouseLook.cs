@@ -37,7 +37,14 @@ public class MouseLook : MonoBehaviour
                 objectHit = hit.transform;
                 if (objectHit.gameObject.CompareTag("Object") && hit.distance < 2.5f)
                 {
-                    context.GetComponent<TextMeshProUGUI>().text = objectHit.gameObject.GetComponent<Interact>().HUD;
+					if (!objectHit.GetComponent<Interact>().isPhoneTalking)
+					{
+						context.GetComponent<TextMeshProUGUI>().text = objectHit.gameObject.GetComponent<Interact>().HUD;
+					}
+					else
+					{
+						context.GetComponent<TextMeshProUGUI>().text = "";
+					}
                     overseer.highlightedObject = objectHit.gameObject;
                 }
                 else

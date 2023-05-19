@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class OverseerGlobalProcesses : MonoBehaviour
 {
@@ -197,7 +198,7 @@ public class OverseerGlobalProcesses : MonoBehaviour
         miner.ActiveToggle.isOn = data.isMinerActive;
         miner.totalIn = data.totalIn;
         miner.totalTrans = data.totalTrans;
-
+		miner.secTrans = data.secTrans;
     }
 
 
@@ -385,7 +386,7 @@ public class OverseerGlobalProcesses : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab) && !modeWalk && isAlive)
         {
             ModeChange("Walk");
-            computerURL.DeactivateInputField();
+			EventSystem.current.SetSelectedGameObject(null);
         }
     }
 

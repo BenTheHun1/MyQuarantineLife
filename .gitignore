@@ -65,3 +65,7 @@ crashlytics-build.properties
 UserSettings/
 
 Advent/Library/
+
+Advent/Temp/
+
+Advent/Logs/

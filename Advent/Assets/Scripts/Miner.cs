@@ -9,7 +9,7 @@ public class Miner : MonoBehaviour
 
     public int totalTrans = 0;
     public float totalIn = 0;
-    private int secTrans = 0;
+    public int secTrans = 1;
     private float secIn = 0;
 
     public Text txtTotalTrans;
@@ -37,17 +37,8 @@ public class Miner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isActive && overseer.isAlive)
-        {
-            secTrans = 1;
-        }
-        else
-        {
-            secTrans = 0;
-        }
-
         txtSecIn.text = secIn.ToString("N2");
-        txtSecTrans.text = secTrans.ToString();
+		if (isActive) { txtSecTrans.text = secTrans.ToString(); }
         txtTotalIn.text = totalIn.ToString("N2");
         txtTotalTrans.text = totalTrans.ToString();
     }
@@ -56,11 +47,14 @@ public class Miner : MonoBehaviour
     {
         while (overseer.isAlive)
         {
-            yield return new WaitForSeconds(1);
-            secIn = secTrans * 0.01f;
-            totalTrans += secTrans;
-            totalIn += secIn;
-            overseer.coin += secIn;
+			yield return new WaitForSeconds(1);
+			if (isActive)
+			{
+				secIn = secTrans * 0.01f;
+				totalTrans += secTrans;
+				totalIn += secIn;
+				overseer.coin += secIn;
+			}
         }
     }
 }
